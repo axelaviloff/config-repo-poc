@@ -27,7 +27,7 @@ pipeline {
                     def mydata = readYaml file: "gateway.yml"
                     mydata.aes = AES
                     mydata.iv = IV
-                    writeYaml file: "gateway.yml", data: mydata
+                    writeYaml file: "gateway.yml", data: mydata, overwrite: true
                 }
             }
         }
