@@ -25,8 +25,8 @@ pipeline {
             steps {
                 script {
                     def mydata = readYaml file: "mib-gateway.yml"
-                    mydata.default-aes-key = AES
-                    mydata.default-aes-iv = IV
+                    mydata.aes = AES
+                    mydata.iv = IV
                     writeYaml file: "gateway.yml", data: mydata
                 }
             }
