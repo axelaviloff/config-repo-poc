@@ -24,6 +24,8 @@ pipeline {
         stage("Update Keys") {
             steps {
                 script {
+                    println AES
+                    println IV
                     def mydata = readYaml file: "gateway.yml"
                     mydata.aes = AES
                     mydata.iv = IV
