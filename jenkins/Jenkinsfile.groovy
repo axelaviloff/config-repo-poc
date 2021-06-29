@@ -24,7 +24,7 @@ pipeline {
         stage("Update Keys") {
             steps {
                 script {
-                    def mydata = readYaml file: "mib-gateway.yml"
+                    def mydata = readYaml file: "gateway.yml"
                     mydata.aes = AES
                     mydata.iv = IV
                     writeYaml file: "gateway.yml", data: mydata
