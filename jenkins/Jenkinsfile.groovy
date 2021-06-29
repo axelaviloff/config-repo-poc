@@ -7,16 +7,20 @@ pipeline {
     }
     environment {
         gradle = "./gradlew"
-        AES = ""
-        IV = ""
     }
     
     stages {
         stage("Get Param Keys") {
             steps {
                 script {
-                    AES = env.getProperty("AES")
-                    IV = env.getProperty("IV")
+                    def aes1 = env.getProperty("AES")
+                    def iv1 = env.getProperty("IV")
+                    println aes1
+                    println iv1
+                    println "Chave ${AES}"
+                    println "Chave ${IV}"
+                    
+                    
 
                 }
             }
@@ -24,8 +28,6 @@ pipeline {
         stage("Update Keys") {
             steps {
                 script {
-                    println AES
-                    println IV
                     def mydata = readYaml file: "gateway.yml"
                     mydata.aes = AES
                     mydata.iv = IV
